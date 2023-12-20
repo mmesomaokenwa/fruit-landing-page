@@ -18,7 +18,7 @@
 <body>
     <header>
         <img src="images/LOGO.png" alt="logo" class="logo">
-        <nav id="nav">
+        <nav id="nav" class="ff-nav fw-semibold fs-nav">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#features">Featues</a></li>
@@ -26,19 +26,38 @@
                 <li><a href="#">Pricing</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
+            <a href="#"><button class="btn">Sign Up</button></a>
         </nav>
-        <a href="#" class="button">Sign Up</a>
+
+        <button class="hamburger">
+            <div class="bar"></div>
+        </button>
+
+        <nav class="mobile-nav ff-nav fw-semibold fs-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Featues</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="button">Sign Up</a></li>
+            </ul>
+        </nav>
+        
     </header>
     <main>
         <section class="hero-section" id="hero">
             <div class="hero-content">
-                <h1 class="hero-header">Revitalize Your Routine, <br> 
+                <h1 class="hero-header fs-primary-header">Revitalize Your Routine,  
                     Fresh, Fruity, Fantastic!</h1>
                 <p class="hero-text">"Savor the Symphony of Flavors, with Nature's Sweetness & deliciousness.
                     Get the best variety of juices here!”
                 </p>
-                <a href="#" class="button menu-btn">View Menu</a>
-                <a href="#" class="button discount-btn">Discount</a>
+                <div class="flex-gap-2">
+                    <a href="#" class="button btn fs-nav">View Menu</a>
+                    <a href="#" class="button btn fs-nav">Discount</a>
+                </div>
+                
             </div>
             <div class="hero-img">
                 <img src="images/Orange.png" alt="hero image">
@@ -69,7 +88,7 @@
                 <div class="card">
                     <img src="images/MANGO.png" alt="fruit">
                     <div class="card-text">
-                        <p>Mango Bliss Burst</p>
+                        <p class="fw-bold">Mango Bliss Burst</p>
                         <p class="card-description">Description of the item</p>                       
                     </div>
                     <div class="price">
