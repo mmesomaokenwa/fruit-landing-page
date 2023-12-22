@@ -3,6 +3,18 @@
     --clr-secondary: #ffffff;
     --clr-tertiary: #FF3D00;
 
+    --linear-gradient-1: linear-gradient(180deg, #FFE2C8 0%, #FFF3C8 0.01%, #FEBA44 85.42%);
+    --linear-gradient-2: linear-gradient(0deg, #FDFDFD, #FDFDFD),
+    linear-gradient(180.82deg, rgba(255, 155, 37, 0.79) 1.75%, rgba(255, 241, 224, 0.65) 91.89%);
+    --linear-gradient-3: linear-gradient(0deg, #FDFDFD, #FDFDFD),
+    linear-gradient(360deg, rgba(255, 155, 37, 0.87) 2.43%, #FFF3C8 83.67%);
+    --linear-gradient-4: linear-gradient(180.52deg, rgba(255, 243, 200, 0.62) 0.41%, #FFA51E 99.48%),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    
+    
+    
+
+
     --fs-nav: 1.125rem;
     --fs-body: 1.675rem; 
     --fs-primary-header: 4.75rem;
@@ -33,17 +45,25 @@ html {
 }
 
 body {
-    padding-inline: 3rem;
+    padding-inline: 1rem;
     margin-inline: auto;
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     font-weight: var(--fw-regular);
     text-align: center;
     color: var(--clr-primary);
-    line-height: 1.3;
+    line-height: 1.2;
     background-image: url(images/BG.png);
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (min-width: 760px) {
+        padding-inline: 3rem;
+    }
+
+    @media (min-width: 960px) {
+        text-align: left;
+    }
 }
 
 /* RESETS */
@@ -84,6 +104,14 @@ a {
     font-family: var(--ff-nav);
 }
 
+.ff-menu-700 {
+    font-family: var(--ff-menu-700);
+}
+
+.ff-menu-400 {
+    font-family: var(--ff-menu-400);
+}
+
 .fs-nav {
     font-size: var(--fs-nav);
 }
@@ -114,6 +142,39 @@ a {
     gap: 2rem;
 }
 
+.grid-gap-1 {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-gap-2 {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-gap-3 {
+    display: grid;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .grid-gap-1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .grid-gap-1 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .flex-gap-2 {
+        justify-content: start;
+    }
+}
+
+
+
 /* TYPOGRAPHY */
 
 
@@ -124,12 +185,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-block: 1.5rem;
+}
 
-    & img {
-        width: 100px;
-        aspect-ratio: 1;
-        object-fit: contain;
-    }
+.logo {
+    width: 100px;
+    aspect-ratio: 1;
+    object-fit: contain;
 }
 
 nav {
@@ -150,6 +211,10 @@ nav {
     &:hover, &:focus {
         background-color: var(--clr-primary);
         color: var(--clr-secondary);
+    }
+
+    &[data-large= "large"] {
+        padding: 1rem 2rem;
     }
 }
 
@@ -276,14 +341,22 @@ nav {
 
 main {
     display: grid;
-    gap: 5rem;
+    gap: 7rem;
+    padding-block: 3rem;
 }
 
-.hero-section {
-    display: grid;
-    gap: 3rem;
+@media (min-width: 960px) {
+    .hero-section {
+        grid-template-columns: 3fr 2fr;
+        gap: 0;
+    }
+    
+    .features-section {
+    grid-template-columns: 2fr 4fr;
+    align-items: center;
 }
 
+}
 .hero-content {
     display: grid;
     gap: 1.5rem;
@@ -293,4 +366,53 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & img {
+        transform: translateX(-2rem);
+    }
 }
+
+.img-card {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #FFE2C8 0%, #FFF3C8 0.01%, #FEBA44 85.42%);
+    border-radius: 48px;
+    box-shadow: 0 10px 50px hsla(32, 29%, 27%, 0.54);
+
+    @media (min-width: 960px) {
+        &:nth-child(2) {
+            transform: translateY(30%);
+        }
+    }
+}
+
+.card {
+    display: grid;
+    position: relative;
+    gap: 1.5rem;
+    text-align: left;
+    padding: 2rem;
+    border-radius: 48px;
+    box-shadow: 0 0 50px #FFFFFF;
+
+    &:nth-child(1) {
+        background: linear-gradient(180.82deg, rgba(255, 155, 37, 0.79) 1.75%, rgba(255, 241, 224, 0.65) 91.89%);
+    }
+
+    &:nth-child(2) {
+        background: linear-gradient(360deg, rgba(255, 155, 37, 0.87) 2.43%, #FFF3C8 83.67%);
+    }
+
+    &:nth-child(3) {
+        background: linear-gradient(180.52deg, rgba(255, 243, 200, 0.62) 0.41%, #FFA51E 99.48%);
+    }
+}
+
+.card::after {
+    content: url("images/Heart\ Group\ --\ 1.png");
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
