@@ -157,6 +157,28 @@ a {
     gap: 3rem;
 }
 
+
+@keyframes fadeInLeft {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleInBottom {
+    to {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleInCenter {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @media (min-width: 768px) {
     .grid-gap-1 {
         grid-template-columns: repeat(2, 1fr);
@@ -173,6 +195,35 @@ a {
     }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    .fade-in-left {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .fade-in-left.active {
+        animation: fadeInLeft 1s ease forwards;
+        animation-delay: .3s;
+    }
+
+    .scale-in-bottom {
+        transform: translateZ(0) translateY(100%) scale(.75);
+        opacity: 0;
+    }
+
+    .scale-in-bottom.active {
+        animation: scaleInBottom 1s cubic-bezier(.4,.6,.8,1) forwards;
+    }
+
+    .scale-in-center {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    .scale-in-center.active {
+        animation: scaleInCenter 1s ease forwards;
+    }
+}
 
 
 /* TYPOGRAPHY */
@@ -402,10 +453,12 @@ main {
 
     &:nth-child(2) {
         background: linear-gradient(360deg, rgba(255, 155, 37, 0.87) 2.43%, #FFF3C8 83.67%);
+        animation-delay: .4s;
     }
 
     &:nth-child(3) {
         background: linear-gradient(180.52deg, rgba(255, 243, 200, 0.62) 0.41%, #FFA51E 99.48%);
+        animation-delay: .8s;
     }
 }
 
@@ -416,3 +469,38 @@ main {
     right: 0;
 }
 
+/* FOOTER */
+
+footer .wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+    width: max-content;
+
+    input, textarea {
+        padding: 1rem;
+        font: inherit;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+    }
+
+    & .submit-btn {
+        cursor: pointer;
+        background: #FFA500;
+        transition: filter .3s;
+
+        &:hover, &:focus {
+            filter: opacity(.7);
+        }
+    }
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+}
