@@ -166,13 +166,21 @@ a {
 }
 
 @keyframes scaleInBottom {
+    70% {
+        transform: scale(1.1);
+    }
+
     to {
-        transform: translateY(0) scaleY(1);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
 }
 
 @keyframes scaleInCenter {
+    70% {
+        transform: scale(1.1);
+    }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -207,7 +215,7 @@ a {
     }
 
     .scale-in-bottom {
-        transform: translateZ(0) translateY(100%) scale(.75);
+        transform: translateZ(0) translateY(50%) scale(.75);
         opacity: 0;
     }
 
@@ -431,6 +439,10 @@ main {
     border-radius: 48px;
     box-shadow: 0 10px 50px hsla(32, 29%, 27%, 0.54);
 
+    & img {
+        aspect-ratio: 1;
+    }
+
     @media (min-width: 960px) {
         &:nth-child(2) {
             transform: translateY(30%);
@@ -459,6 +471,10 @@ main {
     &:nth-child(3) {
         background: linear-gradient(180.52deg, rgba(255, 243, 200, 0.62) 0.41%, #FFA51E 99.48%);
         animation-delay: .8s;
+    }
+
+    & img {
+        aspect-ratio: 1;
     }
 }
 
